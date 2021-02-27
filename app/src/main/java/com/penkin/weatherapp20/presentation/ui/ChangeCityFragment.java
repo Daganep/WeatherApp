@@ -1,4 +1,6 @@
 package com.penkin.weatherapp20.presentation.ui;
 
-public class ChangeCityFragment {
+import androidx.fragment.app.Fragment;
+
+public class ChangeCityFragment extends Fragment {
 }
