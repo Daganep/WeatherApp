@@ -1,4 +1,4 @@
-package com.penkin.weatherapp20.view.Settings;
+package com.penkin.weatherapp20.view.settings;
 
 import androidx.fragment.app.Fragment;
 
