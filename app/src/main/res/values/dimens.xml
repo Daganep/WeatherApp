@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="maimScreenMarginTop">18dp</dimen>
+    <dimen name="mainScreenDefaultMargin">8dp</dimen>
+    <dimen name="mainImageSize">68dp</dimen>
+    <dimen name="defaultMarginX2">16dp</dimen>
+    <dimen name="otherDayImageSize">45dp</dimen>
+    <dimen name="otherPictureMarginStart">96dp</dimen>
+</resources>
