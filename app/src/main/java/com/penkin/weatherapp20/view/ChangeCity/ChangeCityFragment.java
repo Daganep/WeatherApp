@@ -1,4 +1,4 @@
-package com.penkin.weatherapp20.view;
+package com.penkin.weatherapp20.view.ChangeCity;
 
 import androidx.fragment.app.Fragment;
 

@@ -1,4 +1,4 @@
-package com.penkin.weatherapp20.view;
+package com.penkin.weatherapp20.view.Main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.databinding.FragmentMainBinding;
 
-public class MainFragment extends Fragment {
+import moxy.MvpAppCompatFragment;
+
+public class MainFragment extends MvpAppCompatFragment implements MainView {
 
     private FragmentMainBinding mainBinding;
 
