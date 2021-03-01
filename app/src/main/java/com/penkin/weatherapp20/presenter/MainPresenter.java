@@ -41,9 +41,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
             checkResponse();
         },  throwable -> {
             if (throwable instanceof IOException) {
-                //getViewState().showError(R.string.load_info_network_error);
+                getViewState().showError(R.string.load_info_network_error);
             } else {
-                //getViewState().showError(R.string.load_info_server_error);
+                getViewState().showError(R.string.load_info_server_error);
             }
             Log.e(TAG, "onError" + throwable);
         }));

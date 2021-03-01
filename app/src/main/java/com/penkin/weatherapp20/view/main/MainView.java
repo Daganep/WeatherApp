@@ -10,4 +10,7 @@ public interface MainView extends MvpView {
 
     @StateStrategyType(value = AddToEndSingleStrategy.class)
     void viewUpdate(OpenWeatherResponse response);
+
+    @StateStrategyType(value = AddToEndSingleStrategy.class)
+    void showError(int msg);
 }

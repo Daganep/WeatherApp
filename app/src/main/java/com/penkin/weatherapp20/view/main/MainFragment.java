@@ -32,10 +32,15 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     }
 
     @Override
+    public void showError(int msg) {
+        mainBinding.mainScreen.setVisibility(View.GONE);
+        mainBinding.emptyResult.setText(msg);
+        mainBinding.emptyResult.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         mainBinding = null;
     }
-
-
 }

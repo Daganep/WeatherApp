@@ -3,169 +3,184 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/curCityNameMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/temptext"
-            style="@style/DefaultText.CurrentCityMF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/curCityNameMF">
-
-            <TextView
-                android:id="@+id/curTempMF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/temptext"
-                style="@style/CurrentTempMF"/>
-
-            <ImageView
-                android:id="@+id/curTempImageMF"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/current_temperature_image" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/curTempDescriptMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/temptext"
-            style="@style/DefaultText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-        <TextView
-            android:id="@+id/curTempSensMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/temptext"
-            style="@style/DefaultText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/curTempDescriptMF" />
-
-        <TextView
-            android:id="@+id/windSpeedMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wind_speed"
-            app:layout_constraintEnd_toStartOf="@+id/centerLine"
-            app:layout_constraintTop_toBottomOf="@+id/curTempSensMF" />
-
-        <TextView
-            android:id="@+id/windSpeedMeanMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/centerLine"
-            app:layout_constraintTop_toTopOf="@+id/windSpeedMF" />
-
-        <TextView
-            android:id="@+id/pressureTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pressure"
-            app:layout_constraintEnd_toStartOf="@+id/centerLine"
-            app:layout_constraintTop_toBottomOf="@+id/windSpeedMF" />
-
-        <TextView
-            android:id="@+id/pressureMeanMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/centerLine"
-            app:layout_constraintTop_toTopOf="@+id/pressureTV" />
-
-        <TextView
-            android:id="@+id/humidityMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/humidity"
-            app:layout_constraintEnd_toStartOf="@+id/centerLine"
-            app:layout_constraintTop_toBottomOf="@+id/pressureTV" />
-
-        <TextView
-            android:id="@+id/humidityMeanMF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/centerLine"
-            app:layout_constraintTop_toTopOf="@+id/humidityMF" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainScreen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/humidityMF">
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tomorrowDateMF"
+                android:id="@+id/curCityNameMF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/temptext"
+                style="@style/DefaultText.CurrentCityMF"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tomorrowMF"
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/tomorrowMF"
-                android:text="@string/temptext"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tomorrowDateMF" />
+                app:layout_constraintTop_toBottomOf="@+id/curCityNameMF">
+
+                <TextView
+                    android:id="@+id/curTempMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temptext"
+                    style="@style/CurrentTempMF"/>
+
+                <ImageView
+                    android:id="@+id/curTempImageMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/current_temperature_image" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tomorrowNightTempMF"
+                android:id="@+id/curTempDescriptMF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/temptext"
-                style="@style/nightTempMF"
+                style="@style/DefaultText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <TextView
+                android:id="@+id/curTempSensMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temptext"
+                style="@style/DefaultText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/curTempDescriptMF" />
+
+            <TextView
+                android:id="@+id/windSpeedMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wind_speed"
+                app:layout_constraintEnd_toStartOf="@+id/centerLine"
+                app:layout_constraintTop_toBottomOf="@+id/curTempSensMF" />
+
+            <TextView
+                android:id="@+id/windSpeedMeanMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/centerLine"
+                app:layout_constraintTop_toTopOf="@+id/windSpeedMF" />
+
+            <TextView
+                android:id="@+id/pressureTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure"
+                app:layout_constraintEnd_toStartOf="@+id/centerLine"
+                app:layout_constraintTop_toBottomOf="@+id/windSpeedMF" />
+
+            <TextView
+                android:id="@+id/pressureMeanMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/centerLine"
+                app:layout_constraintTop_toTopOf="@+id/pressureTV" />
+
+            <TextView
+                android:id="@+id/humidityMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                app:layout_constraintEnd_toStartOf="@+id/centerLine"
+                app:layout_constraintTop_toBottomOf="@+id/pressureTV" />
+
+            <TextView
+                android:id="@+id/humidityMeanMF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/centerLine"
+                app:layout_constraintTop_toTopOf="@+id/humidityMF" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/humidityMF">
+
+                <TextView
+                    android:id="@+id/tomorrowDateMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temptext"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tomorrowMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/tomorrowMF"
+                    android:text="@string/temptext"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tomorrowDateMF" />
+
+                <TextView
+                    android:id="@+id/tomorrowNightTempMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temptext"
+                    style="@style/nightTempMF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tomorrowDayTempMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temptext"
+                    style="@style/dayTempMF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tomorrowNightTempMF"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/tomorrowTempImageMF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/tomorrowtempimage"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tomorrowNightTempMF"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/centerLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tomorrowDayTempMF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/temptext"
-                style="@style/dayTempMF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tomorrowNightTempMF"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/tomorrowTempImageMF"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/tomorrowtempimage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tomorrowNightTempMF"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/centerLine"
+            android:id="@+id/emptyResult"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textAlignment="center"
+            android:layout_gravity="center"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>

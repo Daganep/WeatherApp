@@ -6,6 +6,8 @@
       <w>coord</w>
       <w>gson</w>
       <w>moxy</w>
+      <w>temptext</w>
+      <w>tomorrowtempimage</w>
     </words>
   </dictionary>
 </component>
