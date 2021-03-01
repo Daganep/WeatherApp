@@ -1,4 +1,4 @@
-package com.penkin.weatherapp20.presentation.ui;
+package com.penkin.weatherapp20.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

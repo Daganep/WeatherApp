@@ -1,4 +1,4 @@
-package com.penkin.weatherapp20.presentation.ui;
+package com.penkin.weatherapp20.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

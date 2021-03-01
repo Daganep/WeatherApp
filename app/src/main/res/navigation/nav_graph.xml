@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/changeCityFragment"
-        android:name="com.penkin.weatherapp20.presentation.ui.ChangeCityFragment"
+        android:name="com.penkin.weatherapp20.view.ChangeCityFragment"
         android:label="ChangeCityFragment" >
         <action
             android:id="@+id/action_changeCityFragment_to_mainFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.penkin.weatherapp20.presentation.ui.SettingsFragment"
+        android:name="com.penkin.weatherapp20.view.SettingsFragment"
         android:label="SettingsFragment" >
         <action
             android:id="@+id/action_settingsFragment_to_mainFragment"
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.penkin.weatherapp20.presentation.ui.MainFragment"
+        android:name="com.penkin.weatherapp20.view.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_settingsFragment"

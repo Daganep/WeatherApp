@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherApp20">
         <activity
-            android:name=".presentation.ui.MainActivity"
+            android:name=".view.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
