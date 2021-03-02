@@ -8,4 +8,8 @@
     <dimen name="otherDayImageSize">45dp</dimen>
     <dimen name="otherPictureMarginStart">96dp</dimen>
     <dimen name="marginFromAppBar">80dp</dimen>
+    <dimen name="defaultMarginX3">24dp</dimen>
+    <dimen name="cityButtonHeight">32dp</dimen>
+    <dimen name="defaultMargin">8dp</dimen>
+    <dimen name="defaultMarginX6">48dp</dimen>
 </resources>

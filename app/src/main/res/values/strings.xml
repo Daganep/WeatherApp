@@ -9,4 +9,16 @@
     <string name="load_info_network_error">Network connection error.\nPlease, check network settings.</string>
     <string name="load_info_server_error">Server connection error.\nPlease, try again later.</string>
     <string name="appbar_title">WeatherApp 2.0</string>
+    <string name="current_city">Current City</string>
+    <string name="write_name_of_city">Write name of city</string>
+    <string name="popular_cities">Popular Cities</string>
+    <string name="moscowButton">Moscow</string>
+    <string name="saint_petersburg">Saint Petersburg</string>
+    <string name="vladimir">Vladimir</string>
+    <string name="bishkek">Bishkek</string>
+    <string name="novosibirsk">Novosibirsk</string>
+    <string name="almaty">Almaty</string>
+    <string name="history">History</string>
+    <string name="locationCity">Location</string>
+    <string name="accept_button">Accept</string>
 </resources>
