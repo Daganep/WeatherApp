@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/defaultMarginX2"
-        android:paddingEnd="@dimen/defaultMarginX2">
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.WeatherApp.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mainToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/Theme.WeatherApp.PopupOverlay"
+                app:title="@string/appbar_title"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainScreen"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/marginFromAppBar"
+            android:paddingStart="@dimen/defaultMarginX4"
+            android:paddingEnd="@dimen/defaultMarginX4">
 
             <TextView
                 android:id="@+id/curCityNameMF"
@@ -129,7 +146,6 @@
                     android:id="@+id/tomorrowDateMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,7 +154,6 @@
                     style="@style/tomorrowMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tomorrowDateMF" />
 
@@ -147,7 +162,6 @@
                     style="@style/nightTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -157,7 +171,6 @@
                     style="@style/dayTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tomorrowTempImageMF"
@@ -189,7 +202,6 @@
                     android:id="@+id/day3DateMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -198,7 +210,6 @@
                     style="@style/tomorrowMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/day3DateMF" />
 
@@ -207,7 +218,6 @@
                     style="@style/nightTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -217,7 +227,6 @@
                     style="@style/dayTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/day3TempImageMF"
@@ -249,7 +258,6 @@
                     android:id="@+id/day4DateMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -258,7 +266,6 @@
                     style="@style/tomorrowMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/day4DateMF" />
 
@@ -267,7 +274,6 @@
                     style="@style/nightTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -277,7 +283,6 @@
                     style="@style/dayTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/day4NightTempMF"
                     app:layout_constraintStart_toEndOf="@+id/day4TempImageMF"
@@ -309,7 +314,6 @@
                     android:id="@+id/day5DateMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -318,7 +322,6 @@
                     style="@style/tomorrowMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/day5DateMF" />
 
@@ -327,7 +330,6 @@
                     style="@style/nightTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -337,7 +339,6 @@
                     style="@style/dayTempMF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/temptext"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/day5TempImageMF"

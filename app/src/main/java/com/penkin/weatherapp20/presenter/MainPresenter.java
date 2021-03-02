@@ -5,6 +5,7 @@ import android.util.Log;
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.application.WeatherApp;
+import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.model.entities.OpenWeatherResponse;
 import com.penkin.weatherapp20.model.retrofit.ErrorInterceptor;
 import com.penkin.weatherapp20.model.retrofit.RetrofitApi;
@@ -27,7 +28,6 @@ public class MainPresenter extends MvpPresenter<MainView> {
     RetrofitApi retrofitApi;
     private final CompositeDisposable subscriptions;
     private final String TAG = "Error";
-    private OpenWeatherResponse data;
 
     public MainPresenter(){
         WeatherApp.getAppComponent().inject(this);
@@ -37,7 +37,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
     public void requestData(){
         Observable<OpenWeatherResponse> observable = retrofitApi.requestServer("Moscow", Constants.APIKEY, "metric");
         subscriptions.add(observable.observeOn(AndroidSchedulers.mainThread()).subscribe( emitter -> {
-            getViewState().viewUpdate(emitter);
+            getViewState().renderWeather(new CurrentResponseInfo(emitter));
             checkResponse();
         },  throwable -> {
             if (throwable instanceof IOException) {

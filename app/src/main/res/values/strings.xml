@@ -8,4 +8,5 @@
     <string name="temptext">TempText</string>
     <string name="load_info_network_error">Network connection error.\nPlease, check network settings.</string>
     <string name="load_info_server_error">Server connection error.\nPlease, try again later.</string>
+    <string name="appbar_title">WeatherApp 2.0</string>
 </resources>
