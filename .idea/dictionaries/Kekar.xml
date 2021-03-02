@@ -4,6 +4,7 @@
       <w>apikey</w>
       <w>appid</w>
       <w>coord</w>
+      <w>geocoder</w>
       <w>gson</w>
       <w>moxy</w>
       <w>temptext</w>
