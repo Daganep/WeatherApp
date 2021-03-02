@@ -12,4 +12,5 @@
     <dimen name="cityButtonHeight">32dp</dimen>
     <dimen name="defaultMargin">8dp</dimen>
     <dimen name="defaultMarginX6">48dp</dimen>
+    <dimen name="defaultMarginX8">64dp</dimen>
 </resources>
