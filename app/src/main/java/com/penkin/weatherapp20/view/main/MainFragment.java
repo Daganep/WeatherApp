@@ -2,13 +2,19 @@ package com.penkin.weatherapp20.view.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.databinding.FragmentMainBinding;
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.presenter.MainPresenter;
@@ -25,6 +31,7 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     MainPresenter presenter;
     private FragmentMainBinding mainBinding;
     private ImageSetter imageSetter;
+    private NavController navController;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,12 +44,26 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         super.onViewCreated(view, savedInstanceState);
         imageSetter = new ImageSetter();
         initToolbar();
+        setHasOptionsMenu(true);
         presenter.requestData();
+        navController = Navigation.findNavController(view);
     }
 
     private void initToolbar(){
         ((AppCompatActivity) requireActivity()).setSupportActionBar(mainBinding.mainToolbar);
         Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater){
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_toolbar_main, menu);
+
+        MenuItem changeCityItem = menu.findItem(R.id.menu_change_city);
+        changeCityItem.setOnMenuItemClickListener(item -> {
+            navController.navigate(R.id.changeCityFragment);
+            return false;
+        });
     }
 
     @Override
