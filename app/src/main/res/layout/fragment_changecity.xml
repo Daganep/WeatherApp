@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -74,7 +75,7 @@
                 android:id="@+id/moscowButton"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/defaultMarginX2"
-                android:text="@string/moscowButton"
+                android:text="@string/moscow"
                 style="@style/cityButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popCityLabelTV"/>

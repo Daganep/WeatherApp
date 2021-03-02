@@ -12,7 +12,7 @@
     <string name="current_city">Current City</string>
     <string name="write_name_of_city">Write name of city</string>
     <string name="popular_cities">Popular Cities</string>
-    <string name="moscowButton">Moscow</string>
+    <string name="moscow">Moscow</string>
     <string name="saint_petersburg">Saint Petersburg</string>
     <string name="vladimir">Vladimir</string>
     <string name="bishkek">Bishkek</string>
@@ -21,4 +21,7 @@
     <string name="history">History</string>
     <string name="locationCity">Location</string>
     <string name="accept_button">Accept</string>
+    <string name="about_button">about button</string>
+    <string name="settings_button">settings button</string>
+    <string name="change_city_button">change city button</string>
 </resources>
