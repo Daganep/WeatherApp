@@ -45,11 +45,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     private String getCityName(String lastKey){
         String cityName;
-        if(lastKey.isEmpty()){
-            if(SettingsSingleton.getLocationCity().isEmpty())
-                cityName = SettingsSingleton.getDefaultCity();
-            else cityName = SettingsSingleton.getLocationCity();
-        } else cityName = lastKey;
+        if(SettingsSingleton.getCurrentCity().isEmpty()){
+            if(lastKey.isEmpty())cityName = SettingsSingleton.getDefaultCity();
+            else cityName = lastKey;
+        } else cityName = SettingsSingleton.getCurrentCity();
         return cityName;
     }
 

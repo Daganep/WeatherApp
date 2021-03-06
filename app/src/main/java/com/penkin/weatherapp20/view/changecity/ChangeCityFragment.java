@@ -9,17 +9,24 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.databinding.FragmentChangecityBinding;
 import com.penkin.weatherapp20.model.SettingsSingleton;
+import com.penkin.weatherapp20.presenter.ChangeCityPresenter;
 
 import java.util.Objects;
 
 import moxy.MvpAppCompatFragment;
+import moxy.presenter.InjectPresenter;
 
 public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCityView, View.OnClickListener {
 
+    @InjectPresenter
+    ChangeCityPresenter presenter;
+    private NavController navController;
     private FragmentChangecityBinding changeCityBinding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,13 +38,14 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        init();
+        init(view);
     }
 
-    private void init(){
+    private void init(View view){
         initToolbar();
         clickListenerInit();
-        changeCityBinding.curCityNameTV.setText(SettingsSingleton.getCurrentCity());
+        navController =  Navigation.findNavController(view);
+        changeCityBinding.cityNameACTV.setText(SettingsSingleton.getCurrentCity());
     }
 
     private void initToolbar(){
@@ -67,6 +75,8 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.acceptButton:{
+                presenter.setCurrentCity(changeCityBinding.cityNameACTV.getText().toString());
+                navController.navigate(R.id.mainFragment);
                 break;
             }
             case R.id.moscowButton:{

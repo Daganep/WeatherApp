@@ -3,6 +3,7 @@ package com.penkin.weatherapp20.view.main;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,7 +32,6 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
 
     @InjectPresenter
     MainPresenter presenter;
-    private SharedPreferences prefs;
     private FragmentMainBinding mainBinding;
     private ImageSetter imageSetter;
     private NavController navController;
@@ -46,13 +46,13 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+        //Log.d("Error", lastKey);
         init(view);
         setHasOptionsMenu(true);
         presenter.getData(lastKey);
     }
 
     private void init(View view){
-        prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         imageSetter = new ImageSetter();
         initToolbar();
         navController = Navigation.findNavController(view);
@@ -120,13 +120,17 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         mainBinding.emptyResult.setVisibility(View.VISIBLE);
     }
 
+    @Override
     public void saveLastKey(String key){
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(getString(R.string.last_key), key);
         editor.apply();
     }
 
+    @Override
     public void loadLastKey(){
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         lastKey = prefs.getString(getString(R.string.last_key), "");
     }
 
