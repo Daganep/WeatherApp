@@ -1,10 +1,14 @@
 package com.penkin.weatherapp20.presenter;
 
+import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.application.WeatherApp;
+import com.penkin.weatherapp20.model.SettingsSingleton;
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.model.entities.OpenWeatherResponse;
 import com.penkin.weatherapp20.model.retrofit.ErrorInterceptor;
@@ -28,15 +32,35 @@ public class MainPresenter extends MvpPresenter<MainView> {
     RetrofitApi retrofitApi;
     private final CompositeDisposable subscriptions;
     private final String TAG = "Error";
+    private CurrentResponseInfo responseInfo;
 
     public MainPresenter(){
         WeatherApp.getAppComponent().inject(this);
         subscriptions = new CompositeDisposable();
     }
 
-    public void requestData(){
-        Observable<OpenWeatherResponse> observable = retrofitApi.requestServer("Moscow", Constants.APIKEY, "metric");
+    public void getData(String lastKey){
+        requestData(getCityName(lastKey));
+    }
+
+    private String getCityName(String lastKey){
+        String cityName;
+        if(lastKey.isEmpty()){
+            if(SettingsSingleton.getLocationCity().isEmpty())
+                cityName = SettingsSingleton.getDefaultCity();
+            else cityName = SettingsSingleton.getLocationCity();
+        } else cityName = lastKey;
+        return cityName;
+    }
+
+    public void requestData(String cityName){
+        Observable<OpenWeatherResponse> observable = retrofitApi.requestServer(cityName, Constants.APIKEY, "metric");
         subscriptions.add(observable.observeOn(AndroidSchedulers.mainThread()).subscribe( emitter -> {
+            responseInfo = new CurrentResponseInfo(emitter);
+            if(!responseInfo.getCityName().equals("")){
+                getViewState().saveLastKey(cityName);
+                SettingsSingleton.setCurrentCity(cityName);
+            }
             getViewState().renderWeather(new CurrentResponseInfo(emitter));
             checkResponse();
         },  throwable -> {

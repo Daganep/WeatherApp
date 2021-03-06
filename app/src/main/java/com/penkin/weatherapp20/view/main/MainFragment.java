@@ -1,6 +1,8 @@
 package com.penkin.weatherapp20.view.main;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,9 +31,11 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
 
     @InjectPresenter
     MainPresenter presenter;
+    private SharedPreferences prefs;
     private FragmentMainBinding mainBinding;
     private ImageSetter imageSetter;
     private NavController navController;
+    private String lastKey;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,11 +46,17 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+        init(view);
+        setHasOptionsMenu(true);
+        presenter.getData(lastKey);
+    }
+
+    private void init(View view){
+        prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         imageSetter = new ImageSetter();
         initToolbar();
-        setHasOptionsMenu(true);
-        presenter.requestData();
         navController = Navigation.findNavController(view);
+        loadLastKey();
     }
 
     private void initToolbar(){
@@ -77,7 +87,7 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         mainBinding.pressureMeanMF.setText(response.getPressure());
         mainBinding.humidityMeanMF.setText(response.getHumidity());
 
-        //later code below will be delete (view will be initialize if RecyclerView)
+        //later code below will be delete (view will be initialize in RecyclerView)
         mainBinding.tomorrowDateMF.setText(response.getOtherDayDate(1));
         mainBinding.tomorrowMF.setText(response.getOtherDay(1));
         imageSetter.setImage(response.getOtherDayImagePath(1), mainBinding.tomorrowTempImageMF);
@@ -108,6 +118,16 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         mainBinding.mainScreen.setVisibility(View.GONE);
         mainBinding.emptyResult.setText(msg);
         mainBinding.emptyResult.setVisibility(View.VISIBLE);
+    }
+
+    public void saveLastKey(String key){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(getString(R.string.last_key), key);
+        editor.apply();
+    }
+
+    public void loadLastKey(){
+        lastKey = prefs.getString(getString(R.string.last_key), "");
     }
 
     @Override

@@ -31,8 +31,13 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+        init();
+    }
+
+    private void init(){
         initToolbar();
         clickListenerInit();
+        changeCityBinding.curCityNameTV.setText(SettingsSingleton.getCurrentCity());
     }
 
     private void initToolbar(){
@@ -64,7 +69,6 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
             case R.id.acceptButton:{
                 break;
             }
-
             case R.id.moscowButton:{
                 changeCityBinding.cityNameACTV.setText(R.string.moscow);
                 break;

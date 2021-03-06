@@ -74,13 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
             // Receive information from Passive (virtual) provider
             loc = mLocManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-            //mPassiveInfo.setText(locToString(loc));
 
+            //mPassiveInfo.setText(locToString(loc));
             if (loc != null) {
                 SettingsSingleton.setLocationCity(getCityLoc(loc));
             }
-
-
         }
     }
 
@@ -109,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         if (index >= 0) {
             postal = a.getAddressLine(index);
         }
-
         return a.getAdminArea();
     }
 }

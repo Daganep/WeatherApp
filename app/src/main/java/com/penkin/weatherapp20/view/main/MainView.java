@@ -14,4 +14,10 @@ public interface MainView extends MvpView {
 
     @StateStrategyType(value = AddToEndSingleStrategy.class)
     void showError(int msg);
+
+    @StateStrategyType(value = AddToEndSingleStrategy.class)
+    void loadLastKey();
+
+    @StateStrategyType(value = AddToEndSingleStrategy.class)
+    void saveLastKey(String key);
 }

@@ -14,6 +14,7 @@ public final class SettingsSingleton {
         return settings;
     }
 
+    private final static String defaultCity = "Moscow"; //if have no lastKey, no location
     private static String currentCity = ""; //current city from choose
     private static String locationCity = ""; //current location city
 
@@ -31,5 +32,9 @@ public final class SettingsSingleton {
 
     public static void setLocationCity(String locationCity) {
         SettingsSingleton.locationCity = locationCity;
+    }
+
+    public static String getDefaultCity(){
+        return defaultCity;
     }
 }
