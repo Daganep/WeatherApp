@@ -14,12 +14,13 @@ public class City implements Serializable {
 
     public City(){}
 
-    public City(CurrentCity city){
-        if(city.getName() != null)
+    public City(String city){
+        name = city;
+        /*if(city.getName() != null)
             name = city.getName();
         if(city.getCountry() != null){
             country = city.getCountry();
-        }
+        }*/
     }
 
     public int getId() {

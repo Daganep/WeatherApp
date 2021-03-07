@@ -10,6 +10,7 @@ import com.penkin.weatherapp20.model.entities.City;
 import com.penkin.weatherapp20.view.changecity.ChangeCityView;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -40,19 +41,27 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(emitter -> {
                     cities = emitter;
-                    if(cities.size() != 0)getViewState().setHistory(cities);
+                    if(cities.size() != 0)getViewState().setHistory(historyToString(cities));
                 }, throwable ->
                         Log.e(TAG, "onError" + throwable)));
     }
 
-    /*private void putToDB(){
-        if(elements.size() > 0){
-            subscriptions.add(elementDao.insertList(elements)
-                    .subscribeOn(Schedulers.io())
-                    .subscribeOn(AndroidSchedulers.mainThread())
-                    .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
+    private String historyToString(List<City> cities){
+        StringBuilder builder = new StringBuilder();
+        for(City city : cities){
+            builder.append(city.getName());
+            builder.append(" ");
         }
-    }*/
+        return builder.toString();
+    }
+
+    public void saveHistory(String city){
+        cities.add(new City(city));
+        subscriptions.add(cityDao.insertList(cities)
+                .subscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
+    }
 
     public void setCurrentCity(String cityName){
         SettingsSingleton.setCurrentCity(cityName);

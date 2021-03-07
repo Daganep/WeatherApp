@@ -17,7 +17,7 @@ public interface CityDao {
     Single<List<City>> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    Single<List<Long>> insertList(List<City> elements);
+    Single<List<Long>> insertList(List<City> cities);
 
     @Query("DELETE FROM table_cities")
     Single<Integer> deleteAll();

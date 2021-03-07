@@ -15,11 +15,10 @@ import androidx.navigation.Navigation;
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.databinding.FragmentChangecityBinding;
 import com.penkin.weatherapp20.model.SettingsSingleton;
-import com.penkin.weatherapp20.model.entities.City;
 import com.penkin.weatherapp20.presenter.ChangeCityPresenter;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
@@ -48,6 +47,7 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
         clickListenerInit();
         navController =  Navigation.findNavController(view);
         changeCityBinding.cityNameACTV.setText(SettingsSingleton.getCurrentCity());
+        presenter.getCityHistory();
     }
 
     private void initToolbar(){
@@ -73,8 +73,8 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     }
 
     @Override
-    public void setHistory(List<City> cities){
-
+    public void setHistory(String cities){
+        changeCityBinding.citiesInHistoryTV.setText(cities);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -83,6 +83,7 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
         switch(view.getId()){
             case R.id.acceptButton:{
                 presenter.setCurrentCity(changeCityBinding.cityNameACTV.getText().toString());
+                presenter.saveHistory(changeCityBinding.cityNameACTV.getText().toString());
                 navController.navigate(R.id.mainFragment);
                 break;
             }
