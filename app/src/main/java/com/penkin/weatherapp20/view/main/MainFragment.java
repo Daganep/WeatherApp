@@ -3,7 +3,6 @@ package com.penkin.weatherapp20.view.main;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,7 +45,6 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        //Log.d("Error", lastKey);
         init(view);
         setHasOptionsMenu(true);
         presenter.getData(lastKey);

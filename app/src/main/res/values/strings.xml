@@ -25,4 +25,5 @@
     <string name="settings_button">settings button</string>
     <string name="change_city_button">change city button</string>
     <string name="last_key">Last key</string>
+    <string name="clear_history_button">clear history button</string>
 </resources>

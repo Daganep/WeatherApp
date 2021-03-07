@@ -70,6 +70,7 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
         changeCityBinding.novosibirskButton.setOnClickListener(this);
         changeCityBinding.almatyButton.setOnClickListener(this);
         changeCityBinding.acceptButton.setOnClickListener(this);
+        changeCityBinding.clearHistoryButton.setOnClickListener(this);
     }
 
     @Override
@@ -115,12 +116,10 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
                 changeCityBinding.cityNameACTV.setText(SettingsSingleton.getLocationCity());
                 break;
             }
-            /*case R.id.clearHistoryButton:{
-                CityTable.deleteAll(MainActivity.getDatabase());
-                DatabaseHelper.clearHistoryList();
-                history.setText("");
+            case R.id.clearHistoryButton:{
+                presenter.clearHistory();
                 break;
-            }*/
+            }
         }
     }
 }

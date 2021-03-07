@@ -50,7 +50,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         StringBuilder builder = new StringBuilder();
         for(City city : cities){
             builder.append(city.getName());
-            builder.append(" ");
+            builder.append("  ");
         }
         return builder.toString();
     }
@@ -60,6 +60,14 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         subscriptions.add(cityDao.insertList(cities)
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
+    }
+
+    public void clearHistory(){
+        cities.clear();
+        getViewState().setHistory("");
+        subscriptions.add(cityDao.deleteAll()
+                .subscribeOn(Schedulers.io())
                 .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
     }
 

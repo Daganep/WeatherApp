@@ -55,12 +55,12 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/determineButton"
+                style="@style/cityButton"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/defaultMargin"
                 android:text="@string/locationCity"
-                style="@style/cityButton"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cityNameACTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/cityNameACTV" />
 
             <TextView
                 android:id="@+id/popCityLabelTV"
@@ -73,31 +73,31 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/moscowButton"
+                style="@style/cityButton"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/defaultMarginX2"
                 android:text="@string/moscow"
-                style="@style/cityButton"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/popCityLabelTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/popCityLabelTV" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/spbButton"
+                style="@style/cityButton"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="@dimen/defaultMargin"
                 android:layout_marginTop="@dimen/defaultMarginX2"
                 android:text="@string/saint_petersburg"
-                style="@style/cityButton"
                 app:layout_constraintStart_toEndOf="@+id/moscowButton"
-                app:layout_constraintTop_toBottomOf="@+id/popCityLabelTV"/>
+                app:layout_constraintTop_toBottomOf="@+id/popCityLabelTV" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/vladimirButton"
+                style="@style/cityButton"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="@dimen/defaultMargin"
                 android:text="@string/vladimir"
-                style="@style/cityButton"
                 app:layout_constraintStart_toEndOf="@+id/spbButton"
-                app:layout_constraintTop_toTopOf="@+id/spbButton"/>
+                app:layout_constraintTop_toTopOf="@+id/spbButton" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/bishkekButton"
@@ -130,9 +130,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/otherPictureMarginStart"
+                android:layout_marginStart="@dimen/defaultMargin"
                 android:text="@string/history"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/clearHistoryButton"
                 app:layout_constraintTop_toBottomOf="@+id/bishkekButton" />
+
+            <ImageButton
+                android:id="@+id/clearHistoryButton"
+                android:layout_width="@dimen/defaultMarginX3"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/clear_history_button"
+                android:src="@android:drawable/ic_notification_clear_all"
+                app:layout_constraintBottom_toBottomOf="@+id/historyLabelTV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/historyLabelTV" />
 
             <TextView
                 android:id="@+id/citiesInHistoryTV"
