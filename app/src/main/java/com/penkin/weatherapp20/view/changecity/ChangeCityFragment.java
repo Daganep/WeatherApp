@@ -15,8 +15,10 @@ import androidx.navigation.Navigation;
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.databinding.FragmentChangecityBinding;
 import com.penkin.weatherapp20.model.SettingsSingleton;
+import com.penkin.weatherapp20.model.entities.City;
 import com.penkin.weatherapp20.presenter.ChangeCityPresenter;
 
+import java.util.List;
 import java.util.Objects;
 
 import moxy.MvpAppCompatFragment;
@@ -68,6 +70,11 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
         changeCityBinding.novosibirskButton.setOnClickListener(this);
         changeCityBinding.almatyButton.setOnClickListener(this);
         changeCityBinding.acceptButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void setHistory(List<City> cities){
+
     }
 
     @SuppressLint("NonConstantResourceId")

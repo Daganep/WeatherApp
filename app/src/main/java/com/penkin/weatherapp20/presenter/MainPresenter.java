@@ -29,16 +29,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     @Inject
     RetrofitApi retrofitApi;
-    @Inject
-    CityHistoryDatabase appDatabase;
-    private final CityDao cityDao;
     private final CompositeDisposable subscriptions;
     private final String TAG = "Error";
     private CurrentResponseInfo responseInfo;
 
     public MainPresenter(){
         WeatherApp.getAppComponent().inject(this);
-        cityDao = appDatabase.cityDao();
         subscriptions = new CompositeDisposable();
     }
 
