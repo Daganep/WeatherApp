@@ -169,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tomorrowNightTempMF"
                     app:layout_constraintStart_toEndOf="@+id/tomorrowTempImageMF"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -225,7 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/day3NightTempMF"
                     app:layout_constraintStart_toEndOf="@+id/day3TempImageMF"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -281,7 +281,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/day4NightTempMF"
+                    app:layout_constraintEnd_toStartOf="@+id/day4NightTempMF"
                     app:layout_constraintStart_toEndOf="@+id/day4TempImageMF"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -337,7 +337,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/day5NightTempMF"
                     app:layout_constraintStart_toEndOf="@+id/day5TempImageMF"
                     app:layout_constraintTop_toTopOf="parent" />
 

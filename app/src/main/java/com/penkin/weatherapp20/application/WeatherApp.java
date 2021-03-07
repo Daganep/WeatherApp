@@ -22,7 +22,7 @@ public class WeatherApp extends Application {
     private AppComponent generateAppComponent(){
         return DaggerAppComponent
                 .builder()
-                .appModule(new AppModule())
+                .appModule(new AppModule(this))
                 .build();
     }
 }

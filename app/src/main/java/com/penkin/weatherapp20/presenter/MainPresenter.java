@@ -1,14 +1,13 @@
 package com.penkin.weatherapp20.presenter;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.application.WeatherApp;
 import com.penkin.weatherapp20.model.SettingsSingleton;
+import com.penkin.weatherapp20.model.database.CityDao;
+import com.penkin.weatherapp20.model.database.CityHistoryDatabase;
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.model.entities.OpenWeatherResponse;
 import com.penkin.weatherapp20.model.retrofit.ErrorInterceptor;
@@ -30,12 +29,16 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     @Inject
     RetrofitApi retrofitApi;
+    @Inject
+    CityHistoryDatabase appDatabase;
+    private final CityDao cityDao;
     private final CompositeDisposable subscriptions;
     private final String TAG = "Error";
     private CurrentResponseInfo responseInfo;
 
     public MainPresenter(){
         WeatherApp.getAppComponent().inject(this);
+        cityDao = appDatabase.cityDao();
         subscriptions = new CompositeDisposable();
     }
 
