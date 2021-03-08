@@ -65,26 +65,38 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         switch(view.getId()){
             case R.id.celButtonSetFrag:{
                 Log.d(Constants.TAG, "Celsius button clicked!");
-                settingsBinding.celButtonSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_error, null));
-                settingsBinding.farButtonSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary, null));
+                settingsBinding.celButtonSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+                settingsBinding.farButtonSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_primary, null));
+                presenter.setUnits(true);
                 break;
             }
             case R.id.farButtonSetFrag:{
                 Log.d(Constants.TAG, "Fahrenheit button clicked!");
-                settingsBinding.celButtonSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary, null));
-                settingsBinding.farButtonSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_error, null));
+                settingsBinding.celButtonSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_primary, null));
+                settingsBinding.farButtonSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+                presenter.setUnits(false);
                 break;
             }
             case R.id.winterThemeSetFrag:{
                 Log.d(Constants.TAG, "Violet button clicked!");
-                settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_error, null));
-                settingsBinding.springThemeSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary, null));
+                settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+                settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_primary, null));
+                //if(getActivity() != null)getActivity().recreate();
                 break;
             }
             case R.id.springThemeSetFrag:{
                 Log.d(Constants.TAG, "Green button clicked!");
-                settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_primary, null));
-                settingsBinding.springThemeSetFrag.setBackgroundColor(getResources().getColor(R.color.design_default_color_error, null));
+                settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_primary, null));
+                settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+                //if(getActivity() != null)getActivity().recreate();
                 break;
             }
             case R.id.acceptButtonSetFrag:{

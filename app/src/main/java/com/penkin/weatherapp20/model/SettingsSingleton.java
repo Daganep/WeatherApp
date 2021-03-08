@@ -16,6 +16,7 @@ public final class SettingsSingleton {
     private static String currentCity = ""; //current city from choose
     private static String locationCity = ""; //current location city
     private static boolean isNotificationOn;
+    private static String units = "metric";
 
     public static String getCurrentCity() {
         return currentCity;
@@ -43,5 +44,13 @@ public final class SettingsSingleton {
 
     public static void setIsNotificationOn(boolean isNotificationOn) {
         SettingsSingleton.isNotificationOn = isNotificationOn;
+    }
+
+    public static String getUnits() {
+        return units;
+    }
+
+    public static void setUnits(String units) {
+        SettingsSingleton.units = units;
     }
 }

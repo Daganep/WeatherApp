@@ -6,4 +6,6 @@ public class Constants {
     public static final String IMAGE_FORMAT = "@2x.png";
     public static final String MSG_NO_DATA = "No data";
     public static final String TAG = "Error";
+    public static final String METRIC = "metric";
+    public static final String IMPERIAL = "imperial";
 }

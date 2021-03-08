@@ -52,7 +52,8 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void requestData(String cityName){
-        Observable<OpenWeatherResponse> observable = retrofitApi.requestServer(cityName, Constants.APIKEY, "metric");
+        Observable<OpenWeatherResponse> observable = retrofitApi
+                .requestServer(cityName, Constants.APIKEY, SettingsSingleton.getUnits());
         subscriptions.add(observable.observeOn(AndroidSchedulers.mainThread()).subscribe( emitter -> {
             responseInfo = new CurrentResponseInfo(emitter);
             if(!responseInfo.getCityName().equals("")){
