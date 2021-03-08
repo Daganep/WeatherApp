@@ -2,9 +2,12 @@ package com.penkin.weatherapp20.view.changecity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,12 +21,11 @@ import com.penkin.weatherapp20.model.SettingsSingleton;
 import com.penkin.weatherapp20.presenter.ChangeCityPresenter;
 
 import java.util.Objects;
-import java.util.Set;
 
 import moxy.MvpAppCompatFragment;
 import moxy.presenter.InjectPresenter;
 
-public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCityView, View.OnClickListener {
+public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCityView, View.OnClickListener, TextWatcher {
 
     @InjectPresenter
     ChangeCityPresenter presenter;
@@ -45,9 +47,20 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     private void init(View view){
         initToolbar();
         clickListenerInit();
+        autoCompleteInit();
         navController =  Navigation.findNavController(view);
         changeCityBinding.cityNameACTV.setText(SettingsSingleton.getCurrentCity());
         presenter.getCityHistory();
+    }
+
+    private void autoCompleteInit(){
+        ArrayAdapter<?> adapter = ArrayAdapter
+                .createFromResource(requireContext(),
+                R.array.cities,
+                android.R.layout.select_dialog_item);
+        changeCityBinding.cityNameACTV.setThreshold(1);
+        changeCityBinding.cityNameACTV.setAdapter(adapter);
+        changeCityBinding.cityNameACTV.addTextChangedListener(this);
     }
 
     private void initToolbar(){
@@ -121,5 +134,20 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
                 break;
             }
         }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
     }
 }
