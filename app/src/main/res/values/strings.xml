@@ -26,6 +26,14 @@
     <string name="change_city_button">change city button</string>
     <string name="last_key">Last key</string>
     <string name="clear_history_button">clear history button</string>
+    <string name="temperature">Temperature</string>
+    <string name="color_theme">Color theme</string>
+    <string name="messages_about_sudden_changes">Messages about sudden changes in weather or warnings of the Ministry of Emergencies.</string>
+    <string name="notifications">Notifications</string>
+    <string name="deg_c">°C</string>
+    <string name="deg_f">°F</string>
+    <string name="green_theme">Green</string>
+    <string name="violet_theme">Violet</string>
 
     <string-array name="cities">
         <item>Almaty</item>
