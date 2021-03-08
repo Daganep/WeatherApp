@@ -26,4 +26,27 @@
     <string name="change_city_button">change city button</string>
     <string name="last_key">Last key</string>
     <string name="clear_history_button">clear history button</string>
+
+    <string-array name="cities">
+        <item>Almaty</item>
+        <item>Amsterdam</item>
+        <item>Ankara</item>
+        <item>Antalya</item>
+        <item>Antwerp</item>
+        <item>Astana</item>
+        <item>Ashgabat</item>
+        <item>Baghdad</item>
+        <item>Baku</item>
+        <item>Belgrade</item>
+        <item>Berlin</item>
+        <item>Bishkek</item>
+        <item>Budapest</item>
+        <item>Moscow</item>
+        <item>Murmansk</item>
+        <item>Novosibirsk</item>
+        <item>Novosibirsk</item>
+        <item>Saint Petersburg</item>
+        <item>Vladivostok</item>
+        <item>Vladimir</item>
+    </string-array>
 </resources>
