@@ -72,6 +72,12 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
             navController.navigate(R.id.changeCityFragment);
             return false;
         });
+
+        MenuItem settingsItem = menu.findItem(R.id.menu_settings);
+        settingsItem.setOnMenuItemClickListener(item -> {
+            navController.navigate(R.id.settingsFragment);
+            return false;
+        });
     }
 
     @Override
