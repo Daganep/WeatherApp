@@ -15,13 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.databinding.FragmentSettingsBinding;
+import com.penkin.weatherapp20.presenter.SettingsPresenter;
 
 import java.util.Objects;
 
 import moxy.MvpAppCompatFragment;
+import moxy.presenter.InjectPresenter;
 
 public class SettingsFragment extends MvpAppCompatFragment implements SettingsView, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
+    @InjectPresenter
+    SettingsPresenter presenter;
     private FragmentSettingsBinding settingsBinding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -83,7 +87,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-        //WeatherSettings.setNotificationON(isChecked);
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        presenter.setNotification(isChecked);
     }
 }
