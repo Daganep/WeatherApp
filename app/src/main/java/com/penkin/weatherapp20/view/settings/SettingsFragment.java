@@ -43,6 +43,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     private void init(View view){
         initToolbar();
         clickListenerInit();
+        presenter.setButtons();
     }
 
     private void initToolbar(){
@@ -56,6 +57,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         settingsBinding.winterThemeSetFrag.setOnClickListener(this);
         settingsBinding.springThemeSetFrag.setOnClickListener(this);
         settingsBinding.acceptButtonSetFrag.setOnClickListener(this);
+        settingsBinding.notSwitchSetFrag.setOnCheckedChangeListener(this);
     }
 
     //Log.d will be deleted, there will be button action
@@ -109,5 +111,44 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         presenter.setNotification(isChecked);
+    }
+
+    @Override
+    public void setCelsius(){
+        settingsBinding.celButtonSetFrag
+                .setBackgroundColor(getResources()
+                .getColor(R.color.design_default_color_error, null));
+    }
+
+    @Override
+    public void setFahrenheit(){
+        settingsBinding.farButtonSetFrag
+                .setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+    }
+
+    @Override
+    public void setWinter(){
+        settingsBinding.winterThemeSetFrag
+                .setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+    }
+
+    @Override
+    public void setSpring(){
+        settingsBinding.springThemeSetFrag
+                .setBackgroundColor(getResources()
+                        .getColor(R.color.design_default_color_error, null));
+    }
+
+    @Override
+    public void setNotification(){
+        settingsBinding.notSwitchSetFrag.setChecked(true);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        settingsBinding = null;
     }
 }

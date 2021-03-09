@@ -15,8 +15,9 @@ public final class SettingsSingleton {
     private final static String defaultCity = "Moscow"; //if have no lastKey, no location
     private static String currentCity = ""; //current city from choose
     private static String locationCity = ""; //current location city
-    private static boolean isNotificationOn;
     private static String units = "metric";
+    private static String theme = "spring";
+    private static boolean isNotificationOn;
 
     public static String getCurrentCity() {
         return currentCity;
@@ -52,5 +53,13 @@ public final class SettingsSingleton {
 
     public static void setUnits(String units) {
         SettingsSingleton.units = units;
+    }
+
+    public static String getTheme() {
+        return theme;
+    }
+
+    public static void setTheme(String theme) {
+        SettingsSingleton.theme = theme;
     }
 }

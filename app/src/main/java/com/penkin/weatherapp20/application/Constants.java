@@ -8,4 +8,6 @@ public class Constants {
     public static final String TAG = "Error";
     public static final String METRIC = "metric";
     public static final String IMPERIAL = "imperial";
+    public static final String SPRING = "spring";
+    public static final String WINTER = "winter";
 }
