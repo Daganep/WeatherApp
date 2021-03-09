@@ -15,6 +15,21 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
+
     <style name="Theme.WeatherApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.WeatherApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.WeatherApp20.Winter">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorDarkGrey</item>
+        <item name="colorPrimaryVariant">@color/colorLightGrey</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="Theme.WeatherApp20.Spring">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorGreenPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorGreenPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorGreenAccent</item>
+    </style>
 </resources>

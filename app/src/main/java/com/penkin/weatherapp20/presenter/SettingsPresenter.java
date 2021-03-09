@@ -29,4 +29,8 @@ public class SettingsPresenter extends MvpPresenter<SettingsView> {
         if(SettingsSingleton.isNotificationOn())
             getViewState().setNotification();
     }
+
+    public void setTheme(String theme){
+        SettingsSingleton.setTheme(theme);
+    }
 }

@@ -2,7 +2,6 @@ package com.penkin.weatherapp20.view.settings;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.penkin.weatherapp20.R;
-import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.databinding.FragmentSettingsBinding;
 import com.penkin.weatherapp20.presenter.SettingsPresenter;
 
@@ -27,6 +25,8 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     @InjectPresenter
     SettingsPresenter presenter;
     private FragmentSettingsBinding settingsBinding;
+    private int activeButtonColor = R.color.design_default_color_error;
+    private int passiveButtonColor = R.color.colorGreenPrimary;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,38 +65,36 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.celButtonSetFrag:{
-                Log.d(Constants.TAG, "Celsius button clicked!");
                 settingsBinding.celButtonSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
                 settingsBinding.farButtonSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_primary, null));
+                        .getColor(passiveButtonColor, null));
                 presenter.setUnits(true);
                 break;
             }
             case R.id.farButtonSetFrag:{
-                Log.d(Constants.TAG, "Fahrenheit button clicked!");
                 settingsBinding.celButtonSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_primary, null));
+                        .getColor(passiveButtonColor, null));
                 settingsBinding.farButtonSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
                 presenter.setUnits(false);
                 break;
             }
             case R.id.winterThemeSetFrag:{
-                Log.d(Constants.TAG, "Violet button clicked!");
                 settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
                 settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_primary, null));
+                        .getColor(passiveButtonColor, null));
+                presenter.setTheme(getString(R.string.winter));
                 //if(getActivity() != null)getActivity().recreate();
                 break;
             }
             case R.id.springThemeSetFrag:{
-                Log.d(Constants.TAG, "Green button clicked!");
                 settingsBinding.winterThemeSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_primary, null));
+                        .getColor(passiveButtonColor, null));
                 settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
+                presenter.setTheme(getString(R.string.spring));
                 //if(getActivity() != null)getActivity().recreate();
                 break;
             }

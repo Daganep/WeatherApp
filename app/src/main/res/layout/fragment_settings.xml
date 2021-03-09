@@ -75,6 +75,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/celButtonSetFrag"
+                style="@style/weatherButton"
                 android:layout_width="@dimen/settings_button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/defaultMargin"
@@ -84,6 +85,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/farButtonSetFrag"
+                style="@style/weatherButton"
                 android:layout_width="@dimen/settings_button_width"
                 android:layout_height="wrap_content"
                 android:text="@string/deg_f"
@@ -92,6 +94,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/springThemeSetFrag"
+                style="@style/weatherButton"
                 android:layout_width="@dimen/settings_button_width"
                 android:layout_height="wrap_content"
                 android:text="@string/green_theme"
@@ -100,6 +103,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/winterThemeSetFrag"
+                style="@style/weatherButton"
                 android:layout_width="@dimen/settings_button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/defaultMargin"

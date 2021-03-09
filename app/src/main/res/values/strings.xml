@@ -34,6 +34,9 @@
     <string name="deg_f">°F</string>
     <string name="green_theme">Green</string>
     <string name="violet_theme">Violet</string>
+    <string name="winter">winter</string>
+    <string name="spring">spring</string>
+
 
     <string-array name="cities">
         <item>Almaty</item>
