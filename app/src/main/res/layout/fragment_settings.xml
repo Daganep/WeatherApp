@@ -106,15 +106,6 @@
                 android:text="@string/violet_theme"
                 app:layout_constraintEnd_toStartOf="@+id/springThemeSetFrag"
                 app:layout_constraintTop_toBottomOf="@+id/celButtonSetFrag"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/acceptButtonSetFrag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/defaultMarginX4"
-                android:text="@string/accept_button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

@@ -56,7 +56,6 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         settingsBinding.farButtonSetFrag.setOnClickListener(this);
         settingsBinding.winterThemeSetFrag.setOnClickListener(this);
         settingsBinding.springThemeSetFrag.setOnClickListener(this);
-        settingsBinding.acceptButtonSetFrag.setOnClickListener(this);
         settingsBinding.notSwitchSetFrag.setOnCheckedChangeListener(this);
     }
 
@@ -99,10 +98,6 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
                 settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
                         .getColor(R.color.design_default_color_error, null));
                 //if(getActivity() != null)getActivity().recreate();
-                break;
-            }
-            case R.id.acceptButtonSetFrag:{
-                Log.d(Constants.TAG, "Accept button clicked!");
                 break;
             }
         }
