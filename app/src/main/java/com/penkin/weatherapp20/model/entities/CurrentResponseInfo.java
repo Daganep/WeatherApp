@@ -11,14 +11,16 @@ import java.util.Objects;
 
 public class CurrentResponseInfo {
 
+    private final String tempUnits;
     private SimpleDateFormat sdf;
     private SimpleDateFormat sdd;
     private Calendar calendar;
+    private final OpenWeatherResponse response;
 
-    private OpenWeatherResponse response;
-
-    public CurrentResponseInfo(OpenWeatherResponse response){
+    public CurrentResponseInfo(OpenWeatherResponse response, String tempU){
         this.response = response;
+        if(tempU.equals("imperial"))this.tempUnits = "°F";
+        else this.tempUnits = "°C";
         makeDate();
     }
 
@@ -40,7 +42,7 @@ public class CurrentResponseInfo {
     }
 
     public String getCurrentTemp() {
-        return String.format(Locale.getDefault(), "%.0f", response.getList()[0].getMain().getTemp()) + "°C";
+        return String.format(Locale.getDefault(), "%.0f", response.getList()[0].getMain().getTemp()) + tempUnits;
     }
 
     public String getCurrentImagePath() {
@@ -52,7 +54,7 @@ public class CurrentResponseInfo {
     }
 
     public String getGetCurrentTempSens() {
-        return "Feels like: " + String.format(Locale.getDefault(), "%.0f", response.getList()[0].getMain().getFeelsLike()) + "°C";
+        return "Feels like: " + String.format(Locale.getDefault(), "%.0f", response.getList()[0].getMain().getFeelsLike()) + tempUnits;
     }
 
     public String getWindSpeed() {
@@ -82,10 +84,10 @@ public class CurrentResponseInfo {
     }
 
     public String getOtherDayTemp(int i) {
-        return String.format(Locale.getDefault(), "%.0f", response.getList()[1].getMain().getTempMax()) + "°C";
+        return String.format(Locale.getDefault(), "%.0f", response.getList()[1].getMain().getTempMax()) + tempUnits;
     }
 
     public String getOtherNightTemp(int i) {
-        return String.format(Locale.getDefault(), "%.0f", response.getList()[1].getMain().getTempMin()) + "°C";
+        return String.format(Locale.getDefault(), "%.0f", response.getList()[1].getMain().getTempMin()) + tempUnits;
     }
 }

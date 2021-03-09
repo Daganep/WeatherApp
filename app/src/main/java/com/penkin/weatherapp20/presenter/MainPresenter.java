@@ -30,7 +30,6 @@ public class MainPresenter extends MvpPresenter<MainView> {
     @Inject
     RetrofitApi retrofitApi;
     private final CompositeDisposable subscriptions;
-    private final String TAG = "Error";
     private CurrentResponseInfo responseInfo;
 
     public MainPresenter(){
@@ -55,12 +54,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
         Observable<OpenWeatherResponse> observable = retrofitApi
                 .requestServer(cityName, Constants.APIKEY, SettingsSingleton.getUnits());
         subscriptions.add(observable.observeOn(AndroidSchedulers.mainThread()).subscribe( emitter -> {
-            responseInfo = new CurrentResponseInfo(emitter);
+            responseInfo = new CurrentResponseInfo(emitter, SettingsSingleton.getUnits());
             if(!responseInfo.getCityName().equals("")){
                 getViewState().saveLastKey(cityName);
                 SettingsSingleton.setCurrentCity(cityName);
             }
-            getViewState().renderWeather(new CurrentResponseInfo(emitter));
+            getViewState().renderWeather(responseInfo);
             checkResponse();
         },  throwable -> {
             if (throwable instanceof IOException) {
@@ -68,12 +67,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
             } else {
                 getViewState().showError(R.string.load_info_server_error);
             }
-            Log.e(TAG, "onError" + throwable);
+            Log.e(Constants.TAG, "onError" + throwable);
         }));
     }
 
     private void checkResponse(){
-        Log.d(TAG, "Server response code: " + ErrorInterceptor.code);
+        Log.d(Constants.TAG, "Server response code: " + ErrorInterceptor.code);
     }
 
     @Override
