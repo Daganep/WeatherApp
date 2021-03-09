@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.penkin.weatherapp20.R;
-import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.databinding.FragmentSettingsBinding;
 import com.penkin.weatherapp20.presenter.SettingsPresenter;
 
