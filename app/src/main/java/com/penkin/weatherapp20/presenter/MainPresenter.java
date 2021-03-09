@@ -6,8 +6,6 @@ import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.application.WeatherApp;
 import com.penkin.weatherapp20.model.SettingsSingleton;
-import com.penkin.weatherapp20.model.database.CityDao;
-import com.penkin.weatherapp20.model.database.CityHistoryDatabase;
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.model.entities.OpenWeatherResponse;
 import com.penkin.weatherapp20.model.retrofit.ErrorInterceptor;

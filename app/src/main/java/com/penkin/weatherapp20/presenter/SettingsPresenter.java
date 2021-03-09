@@ -1,8 +1,5 @@
 package com.penkin.weatherapp20.presenter;
 
-import android.util.Log;
-
-import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.model.SettingsSingleton;
 import com.penkin.weatherapp20.view.settings.SettingsView;

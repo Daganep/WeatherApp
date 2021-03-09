@@ -1,7 +1,6 @@
 package com.penkin.weatherapp20.view.main;
 
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
-import com.penkin.weatherapp20.model.entities.OpenWeatherResponse;
 
 import moxy.MvpView;
 import moxy.viewstate.strategy.AddToEndSingleStrategy;

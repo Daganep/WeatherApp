@@ -2,6 +2,7 @@ package com.penkin.weatherapp20.presenter;
 
 import android.util.Log;
 
+import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.application.WeatherApp;
 import com.penkin.weatherapp20.model.SettingsSingleton;
 import com.penkin.weatherapp20.model.database.CityDao;
@@ -10,7 +11,6 @@ import com.penkin.weatherapp20.model.entities.City;
 import com.penkin.weatherapp20.view.changecity.ChangeCityView;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -27,7 +27,6 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
     CityHistoryDatabase appDatabase;
     private final CityDao cityDao;
     private final CompositeDisposable subscriptions;
-    private final String TAG = "Error";
     private List<City> cities;
 
     public ChangeCityPresenter(){
@@ -43,7 +42,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
                     cities = emitter;
                     if(cities.size() != 0)getViewState().setHistory(historyToString(cities));
                 }, throwable ->
-                        Log.e(TAG, "onError" + throwable)));
+                        Log.e(Constants.TAG, "onError" + throwable)));
     }
 
     private String historyToString(List<City> cities){
@@ -60,7 +59,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         subscriptions.add(cityDao.insertList(cities)
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
+                .subscribe(throwable -> Log.e(Constants.TAG, "onError" + throwable)));
     }
 
     public void clearHistory(){
@@ -68,7 +67,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         getViewState().setHistory("");
         subscriptions.add(cityDao.deleteAll()
                 .subscribeOn(Schedulers.io())
-                .subscribe(throwable -> Log.e(TAG, "onError" + throwable)));
+                .subscribe(throwable -> Log.e(Constants.TAG, "onError" + throwable)));
     }
 
     public void setCurrentCity(String cityName){
