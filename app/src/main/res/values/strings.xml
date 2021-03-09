@@ -38,6 +38,9 @@
     <string name="spring">spring</string>
     <string name="current_theme">current theme</string>
     <string name="status_bar_color">statusBarColor</string>
+    <string name="units_in_settings_fragment">unitsInSettingsFragment</string>
+    <string name="theme_in_settings_fragment">themeInSettingsFragment</string>
+    <string name="not_in_settings_fragment">notificationsInSettingsFragment</string>
 
 
     <string-array name="cities">

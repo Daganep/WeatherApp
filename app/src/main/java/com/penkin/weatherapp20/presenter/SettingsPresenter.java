@@ -42,4 +42,11 @@ public class SettingsPresenter extends MvpPresenter<SettingsView> {
             getViewState().saveCurrentTheme(R.style.Theme_WeatherApp20_Spring, R.color.colorGreenPrimaryDark);
         else getViewState().saveCurrentTheme(R.style.Theme_WeatherApp20_Winter, R.color.colorLightGrey);
     }
+
+    public void saveSettings(){
+        getViewState().saveCurrentSettings(
+                SettingsSingleton.getUnits(),
+                SettingsSingleton.getTheme(),
+                SettingsSingleton.isNotificationOn());
+    }
 }

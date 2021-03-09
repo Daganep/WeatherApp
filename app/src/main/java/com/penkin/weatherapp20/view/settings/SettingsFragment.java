@@ -101,6 +101,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
                 break;
             }
         }
+        presenter.saveSettings();
     }
 
     @Override
@@ -153,6 +154,16 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt(getString(R.string.current_theme), theme);
         editor.putInt(getString(R.string.status_bar_color), statusBarColor);
+        editor.apply();
+    }
+
+    @Override
+    public void saveCurrentSettings(String units, String theme, boolean isNotificationOn){
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(getString(R.string.units_in_settings_fragment), units);
+        editor.putString(getString(R.string.theme_in_settings_fragment), theme);
+        editor.putBoolean(getString(R.string.not_in_settings_fragment), isNotificationOn);
         editor.apply();
     }
 

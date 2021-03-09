@@ -26,4 +26,7 @@ public interface SettingsView extends MvpView {
 
     @StateStrategyType(value = AddToEndSingleStrategy.class)
     public void saveCurrentTheme(int theme, int statusBarColor);
+
+    @StateStrategyType(value = AddToEndSingleStrategy.class)
+    public void saveCurrentSettings(String units, String theme, boolean isNotificationOn);
 }

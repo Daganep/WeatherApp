@@ -17,7 +17,7 @@ public final class SettingsSingleton {
     private static String locationCity = ""; //current location city
     private static String units = "metric";
     private static String theme = "spring";
-    private static boolean isNotificationOn;
+    private static boolean isNotificationOn = false;
 
     public static String getCurrentCity() {
         return currentCity;
