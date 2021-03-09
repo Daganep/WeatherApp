@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.Window;
 
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
@@ -21,6 +25,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int theme;
+    private int statusBarColor;
+
     /** The link to a {@link LocationManager} instance for quick access. */
     public LocationManager mLocManager = null;
 
@@ -28,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        themeInit();
         getLocation();
+    }
+
+    private void themeInit(){
+        loadTheme();
+        setTheme(theme);
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(statusBarColor, null));
     }
 
     @Override public boolean onSupportNavigateUp () {
@@ -108,5 +123,11 @@ public class MainActivity extends AppCompatActivity {
             postal = a.getAddressLine(index);
         }
         return a.getAdminArea();
+    }
+
+    public void loadTheme(){
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        theme = prefs.getInt(getString(R.string.current_theme), R.style.Theme_WeatherApp20_Spring);
+        statusBarColor = prefs.getInt(getString(R.string.status_bar_color), R.color.colorGreenPrimaryDark);
     }
 }

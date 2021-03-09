@@ -1,7 +1,10 @@
 package com.penkin.weatherapp20.view.settings;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.penkin.weatherapp20.R;
+import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.databinding.FragmentSettingsBinding;
 import com.penkin.weatherapp20.presenter.SettingsPresenter;
 
@@ -37,10 +41,10 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        init(view);
+        init();
     }
 
-    private void init(View view){
+    private void init(){
         initToolbar();
         clickListenerInit();
         presenter.setButtons();
@@ -86,7 +90,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
                 settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
                         .getColor(passiveButtonColor, null));
                 presenter.setTheme(getString(R.string.winter));
-                //if(getActivity() != null)getActivity().recreate();
+                if(getActivity() != null)getActivity().recreate();
                 break;
             }
             case R.id.springThemeSetFrag:{
@@ -95,7 +99,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
                 settingsBinding.springThemeSetFrag.setBackgroundColor(getResources()
                         .getColor(activeButtonColor, null));
                 presenter.setTheme(getString(R.string.spring));
-                //if(getActivity() != null)getActivity().recreate();
+                if(getActivity() != null)getActivity().recreate();
                 break;
             }
         }
@@ -110,33 +114,48 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     public void setCelsius(){
         settingsBinding.celButtonSetFrag
                 .setBackgroundColor(getResources()
-                .getColor(R.color.design_default_color_error, null));
+                .getColor(activeButtonColor, null));
     }
 
     @Override
     public void setFahrenheit(){
         settingsBinding.farButtonSetFrag
                 .setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
     }
 
     @Override
     public void setWinter(){
         settingsBinding.winterThemeSetFrag
                 .setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
     }
 
     @Override
     public void setSpring(){
         settingsBinding.springThemeSetFrag
                 .setBackgroundColor(getResources()
-                        .getColor(R.color.design_default_color_error, null));
+                        .getColor(activeButtonColor, null));
     }
 
     @Override
     public void setNotification(){
         settingsBinding.notSwitchSetFrag.setChecked(true);
+    }
+
+    @Override
+    public void setButtonsColor(int active, int passive){
+        activeButtonColor = active;
+        passiveButtonColor = passive;
+    }
+
+    @Override
+    public void saveCurrentTheme(int theme, int statusBarColor){
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(getString(R.string.current_theme), theme);
+        editor.putInt(getString(R.string.status_bar_color), statusBarColor);
+        editor.apply();
     }
 
     @Override

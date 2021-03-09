@@ -36,6 +36,8 @@
     <string name="violet_theme">Violet</string>
     <string name="winter">winter</string>
     <string name="spring">spring</string>
+    <string name="current_theme">current theme</string>
+    <string name="status_bar_color">statusBarColor</string>
 
 
     <string-array name="cities">
