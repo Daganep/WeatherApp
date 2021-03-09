@@ -17,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.penkin.weatherapp20.R;
+import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.databinding.FragmentMainBinding;
 import com.penkin.weatherapp20.model.entities.CurrentResponseInfo;
 import com.penkin.weatherapp20.presenter.MainPresenter;
@@ -35,6 +36,9 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     private ImageSetter imageSetter;
     private NavController navController;
     private String lastKey;
+    private String units;
+    private String theme;
+    private boolean isNotification;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,14 +51,14 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
         super.onViewCreated(view, savedInstanceState);
         init(view);
         setHasOptionsMenu(true);
-        presenter.getData(lastKey);
+        presenter.getData(lastKey, units, theme, isNotification);
     }
 
     private void init(View view){
         imageSetter = new ImageSetter();
         initToolbar();
         navController = Navigation.findNavController(view);
-        loadLastKey();
+        loadSettings();
     }
 
     private void initToolbar(){
@@ -133,9 +137,12 @@ public class MainFragment extends MvpAppCompatFragment implements MainView {
     }
 
     @Override
-    public void loadLastKey(){
+    public void loadSettings(){
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         lastKey = prefs.getString(getString(R.string.last_key), "");
+        units = prefs.getString(getString(R.string.units_in_settings_fragment), Constants.METRIC);
+        theme = prefs.getString(getString(R.string.theme_in_settings_fragment), Constants.SPRING);
+        isNotification = prefs.getBoolean(getString(R.string.not_in_settings_fragment), true);
     }
 
     @Override

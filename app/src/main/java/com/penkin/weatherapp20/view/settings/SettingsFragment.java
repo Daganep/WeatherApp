@@ -107,6 +107,7 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
         presenter.setNotification(isChecked);
+        presenter.saveSettings();
     }
 
     @Override
@@ -128,6 +129,9 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         settingsBinding.winterThemeSetFrag
                 .setBackgroundColor(getResources()
                         .getColor(activeButtonColor, null));
+        settingsBinding.springThemeSetFrag
+                .setBackgroundColor(getResources()
+                        .getColor(passiveButtonColor, null));
     }
 
     @Override
@@ -135,6 +139,9 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         settingsBinding.springThemeSetFrag
                 .setBackgroundColor(getResources()
                         .getColor(activeButtonColor, null));
+        settingsBinding.winterThemeSetFrag
+                .setBackgroundColor(getResources()
+                        .getColor(passiveButtonColor, null));
     }
 
     @Override

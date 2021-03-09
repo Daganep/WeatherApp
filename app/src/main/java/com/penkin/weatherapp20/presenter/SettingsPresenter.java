@@ -1,5 +1,7 @@
 package com.penkin.weatherapp20.presenter;
 
+import android.util.Log;
+
 import com.penkin.weatherapp20.R;
 import com.penkin.weatherapp20.application.Constants;
 import com.penkin.weatherapp20.model.SettingsSingleton;
@@ -25,12 +27,11 @@ public class SettingsPresenter extends MvpPresenter<SettingsView> {
             getViewState().setCelsius();
         else getViewState().setFahrenheit();
         if(SettingsSingleton.getTheme().equals(Constants.SPRING)){
-            getViewState().setSpring();
             getViewState().setButtonsColor(R.color.design_default_color_error, R.color.colorGreenPrimary);
-        }
-        else{
-            getViewState().setWinter();
+            getViewState().setSpring();
+        } else{
             getViewState().setButtonsColor(R.color.design_default_color_error, R.color.colorDarkGrey);
+            getViewState().setWinter();
         }
         if(SettingsSingleton.isNotificationOn())
             getViewState().setNotification();

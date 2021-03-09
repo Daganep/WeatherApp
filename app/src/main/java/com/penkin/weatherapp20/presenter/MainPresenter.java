@@ -35,7 +35,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
         subscriptions = new CompositeDisposable();
     }
 
-    public void getData(String lastKey){
+    public void getData(String lastKey, String units, String theme, boolean isNotification){
+        SettingsSingleton.setUnits(units);
+        SettingsSingleton.setTheme(theme);
+        SettingsSingleton.setIsNotificationOn(isNotification);
         requestData(getCityName(lastKey));
     }
 
