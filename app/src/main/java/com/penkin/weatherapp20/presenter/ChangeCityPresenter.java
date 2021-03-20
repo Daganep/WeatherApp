@@ -42,7 +42,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
                     cities = emitter;
                     if(cities.size() != 0)getViewState().setHistory(historyToString(cities));
                 }, throwable ->
-                        Log.e(Constants.TAG, "onError" + throwable)));
+                        Log.e(Constants.TAG, Constants.ERROR_MESSAGE + throwable)));
     }
 
     private String historyToString(List<City> cities){
@@ -59,7 +59,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         subscriptions.add(cityDao.insertList(cities)
                 .subscribeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(throwable -> Log.e(Constants.TAG, "onError" + throwable)));
+                .subscribe(throwable -> Log.e(Constants.TAG, Constants.ERROR_MESSAGE + throwable)));
     }
 
     public void clearHistory(){
@@ -67,7 +67,7 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
         getViewState().setHistory("");
         subscriptions.add(cityDao.deleteAll()
                 .subscribeOn(Schedulers.io())
-                .subscribe(throwable -> Log.e(Constants.TAG, "onError" + throwable)));
+                .subscribe(throwable -> Log.e(Constants.TAG, Constants.ERROR_MESSAGE + throwable)));
     }
 
     public void setCurrentCity(String cityName){
@@ -76,5 +76,11 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
 
     public void getCurrentCity(){
         getViewState().setCurrentCity(SettingsSingleton.getCurrentCity());
+    }
+
+    public void getLocationCity(){
+        String city = SettingsSingleton.getLocationCity();
+        if(city.isEmpty())city = Constants.LOCATION_ERROR;
+        getViewState().setCurrentCity(city);
     }
 }

@@ -10,4 +10,6 @@ public class Constants {
     public static final String IMPERIAL = "imperial";
     public static final String SPRING = "spring";
     public static final String WINTER = "winter";
+    public static final String LOCATION_ERROR = "Location not defined";
+    public static final String ERROR_MESSAGE = "onError";
 }

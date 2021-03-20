@@ -131,7 +131,7 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
                 break;
             }
             case R.id.determineButton:{
-                changeCityBinding.cityNameACTV.setText(SettingsSingleton.getLocationCity());
+                presenter.getLocationCity();
                 break;
             }
             case R.id.clearHistoryButton:{

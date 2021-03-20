@@ -68,7 +68,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
             } else {
                 getViewState().showError(R.string.load_info_server_error);
             }
-            Log.e(Constants.TAG, "onError" + throwable);
+            Log.e(Constants.TAG, Constants.ERROR_MESSAGE + throwable);
         }));
     }
 
