@@ -7,4 +7,7 @@ import moxy.viewstate.strategy.StateStrategyType;
 public interface ChangeCityView extends MvpView {
     @StateStrategyType(value = AddToEndSingleStrategy.class)
     void setHistory(String cities);
+
+    @StateStrategyType(value = AddToEndSingleStrategy.class)
+    void setCurrentCity(String city);
 }

@@ -73,4 +73,8 @@ public class ChangeCityPresenter extends MvpPresenter<ChangeCityView> {
     public void setCurrentCity(String cityName){
         SettingsSingleton.setCurrentCity(cityName);
     }
+
+    public void getCurrentCity(){
+        getViewState().setCurrentCity(SettingsSingleton.getCurrentCity());
+    }
 }

@@ -61,7 +61,6 @@ public class SettingsFragment extends MvpAppCompatFragment implements SettingsVi
         settingsBinding.notSwitchSetFrag.setOnCheckedChangeListener(this);
     }
 
-    //Log.d will be deleted, there will be button action
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {

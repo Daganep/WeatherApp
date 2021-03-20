@@ -49,7 +49,7 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
         clickListenerInit();
         autoCompleteInit();
         navController =  Navigation.findNavController(view);
-        changeCityBinding.cityNameACTV.setText(SettingsSingleton.getCurrentCity());
+        presenter.getCurrentCity();
         presenter.getCityHistory();
     }
 
@@ -89,6 +89,11 @@ public class ChangeCityFragment extends MvpAppCompatFragment implements ChangeCi
     @Override
     public void setHistory(String cities){
         changeCityBinding.citiesInHistoryTV.setText(cities);
+    }
+
+    @Override
+    public void setCurrentCity(String city){
+        changeCityBinding.cityNameACTV.setText(city);
     }
 
     @SuppressLint("NonConstantResourceId")
